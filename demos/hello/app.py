@@ -32,6 +32,7 @@ def greet(name):
 
 
 # custom flask cli command
+# app.cli.command()用于将函数修饰为命令，例如此处输入命令 $flask hello ，就会输出"Hello,Human!"，cli.echo()相当于python的print()
 @app.cli.command()
 def hello():
     """Just say hello."""

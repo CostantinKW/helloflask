@@ -9,6 +9,7 @@ import os
 from flask import Flask, render_template, flash, redirect, url_for, Markup
 
 app = Flask(__name__)
+# 设置程序密钥，session可使用程序密钥对数据进行加密
 app.secret_key = os.getenv('SECRET_KEY', 'secret string')
 app.jinja_env.trim_blocks = True
 app.jinja_env.lstrip_blocks = True
@@ -47,6 +48,16 @@ def index():
 def inject_info():
     foo = 'I am foo.'
     return dict(foo=foo)  # equal to: return {'foo': foo}
+
+"""
+注释的这一段代码效果等同于上面通过修饰器修饰的效果
+
+def inject_info():
+    foo = 'I am foo.'
+    return dict(foo=foo)  # equal to: return {'foo': foo}
+
+app.context_processor(inject_info)
+"""
 
 
 # register template global function

@@ -39,6 +39,8 @@ def hello():
 @app.route('/hi')
 def hi():
     return redirect(url_for('hello'))
+    # redirect()是重定向函数，下面的例子是访问/hi时重定向至百度首页
+    # return redirect('http://www.baidu.com')
 
 
 # use int URL converter
